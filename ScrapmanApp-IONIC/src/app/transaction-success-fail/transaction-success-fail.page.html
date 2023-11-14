@@ -1,0 +1,67 @@
+
+<ion-content [fullscreen]="true"
+[scrollEvents]="true">
+  <div class="main-success" style="background-image: url('../../assets/main/placed_order.jpg'); display:block;">
+    <div class="overlay-screen">
+      <div class="quote">
+        <ion-title size="large" style="font-weight: 600;font-size:30px;margin-bottom:20px">Thank You! ;-)</ion-title>
+        <ion-title size="large" style="font-weight: 100;font-size:20px">For helping us to make the world <br>CLEANER & GREENER</ion-title>
+      </div>
+    </div>
+  </div>
+  <div class="main-fail" style="background-image: url('../../assets/main/fail.jpg'); ">
+    <div class="overlay-screen">
+      <div class="quote">
+        <ion-title size="large" style="font-weight: 600;font-size:30px;margin-bottom:20px">Sorry! :-(</ion-title>
+        <ion-title size="large" style="font-weight: 100;font-size:20px">We can't placed your order</ion-title>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <ion-card>
+      <ion-list>
+        <ion-item>
+          <ion-text><h3>Invoice</h3></ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">OrderId</ion-label>
+          <ion-text>{{ orderId }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Pickup Date</ion-label>
+          <ion-text>{{ date }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Pickup Time</ion-label>
+          <ion-text>{{ time }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">List of Items</ion-label>
+          <table>
+            <thead>
+              <tr>
+                <th>Sl no</th>
+                <th>Item</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of items; let i=index;">
+                <td>{{ i+1 }}</td>
+                <td>{{ item.item_name }}</td>
+                <td>{{ item.item_weight }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Estimated Price</ion-label>
+          <ion-text>INR {{totalCost}}/-</ion-text>
+        </ion-item>
+      </ion-list>
+      <center><ion-button slot="end" style="margin: 10px auto; padding:5px;">Download Invoice</ion-button></center>
+    </ion-card>
+    
+  </div>
+  <ion-button expand="block" color="success" (click)="goHome()" style="position: absolute; bottom:10px; left:10px; right:10px;color:aliceblue;">Go Home</ion-button>
+</ion-content>

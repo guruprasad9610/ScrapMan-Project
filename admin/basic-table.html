@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Scrapman Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="images/favicon.png" />
+  <!-- table sort link -->
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:../../partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="navbar-brand-wrapper d-flex justify-content-center">
+        <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">  
+          <p class="h3" href="index.html">Scrapman</p>
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-sort-variant"></span>
+          </button>
+        </div>  
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <ul class="navbar-nav navbar-nav-right">
+        
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+              
+              <span class="nav-profile-name">Admin</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <!-- <a class="dropdown-item">
+                <i class="mdi mdi-settings text-primary"></i>
+                Settings
+              </a> -->
+              <a class="dropdown-item" id="logout">
+                <i class="mdi mdi-logout text-primary"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:../../partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="mdi mdi-home menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/tables/basic-table.html">
+              <i class="mdi mdi-grid-large menu-icon"></i>
+              <span class="menu-title">All Tables</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="slot.html">
+              <i class="mdi mdi-grid-large menu-icon"></i>
+              <span class="menu-title">Schudule Slot</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="items.html">
+              <i class="mdi mdi-grid-large menu-icon"></i>
+              <span class="menu-title">All Items</span>
+            </a>
+          </li>
+
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="d-flex justify-content-between flex-wrap">
+                <div class="d-flex align-items-end flex-wrap">
+                  <div class="me-md-3 me-xl-5">
+                    <h2>Scrapman Admin</h2>
+                    <p class="mb-md-0">Analytics dashboard</p>
+                  </div>
+                  <div class="d-flex">
+                    <i class="mdi mdi-home text-muted hover-cursor"></i>
+                    <p class="text-muted mb-0 hover-cursor">&nbsp;/&nbsp;Dashboard&nbsp;/&nbsp;</p>
+                    <p class="text-primary mb-0 hover-cursor">Analytics</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-end flex-wrap">
+                  <button class="btn btn-primary btn-rounded btn-fw" onclick="location.href='slot.html';">Schudule Slot</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!--Users Table---------------------------------------------->
+            <div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Users Table</h4>
+                  <div class="table-responsive">
+                    <table class="table table-hover" id="user_table">
+                      <thead class="" onclick="sortUserTable(0)">
+                        <tr>
+                          <!--<th>User Id</th>-->
+                          <th>Name<b>&nbsp &nbsp</b> <i class="fa fa-fw fa-sort"></i></th>
+                          <th>Email<b>&nbsp &nbsp</b> <i class="fa fa-fw fa-sort"></i></th>
+                          <th>Mobile<b>&nbsp &nbsp</b> <i class="fa fa-fw fa-sort"></i></th> 
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--Agents Table----------------------------------------------->
+            <div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Agents Table</h4>
+                  <div class="table-responsive">
+                    <table class="table table-hover" id="agents_table">
+                      <thead class="" onclick="sortAgentTable(0)">
+                        <tr>
+                          <!-- <th>Agent Id</th> -->
+                          
+                          <th>Name<b>&nbsp &nbsp</b> <i class="fa fa-fw fa-sort"></i></th>
+                          <th>Email<b>&nbsp &nbsp</b> <i class="fa fa-fw fa-sort"></i></th>
+                          <th>Mobile<b>&nbsp &nbsp</b> <i class="fa fa-fw fa-sort"></i></th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="vendors/base/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/template.js"></script>
+  <script>
+
+// Login Check --------------------------------
+login_check(); 
+
+function login_check(){
+      if (sessionStorage.getItem('token') === null) {
+        window.location.href=("login.html");
+      } else {
+        console.log("Login Success");
+      };
+  };
+
+// Logout -------------------------------
+$('#logout').on('click', function(){
+    sessionStorage.clear();
+    window.location.href = "login.html";
+});
+
+const token = sessionStorage.getItem('token');
+    var myArray = []
+    var users = [];
+    $.ajax({
+    method:'post',
+    url:'https://apisbot.ceibagreen.com/api/users/getuser',
+headers:{
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer '+token,
+        },success:function(response, code){
+        myArray = response
+        for (var i = 0; i < myArray.length; i++){
+          if (myArray[i].userType === 2) {
+            continue;
+          } else {
+            // console.log(typeof myArray[i]);
+            users.push(myArray[i]);
+          }
+        }
+        // console.log(users);
+        buildTable_user(users)
+
+    }
+    
+})
+
+
+
+function buildTable_user(data){
+	var table = document.getElementById('user_table')
+	for (var i = 0; i < data.length; i++){
+		var row = `<tr>
+						<!--<td>${data[i]._id}</td>-->
+						<td>${data[i].name}</td>
+						<td>${data[i].email}</td>
+            <td>${data[i].mobile}</td>
+				  </tr>`
+          table.innerHTML += row
+	}
+};
+// // table button -----------
+// $(document).ready(function(){
+//     $('.editbtn').click(function(){
+//         $(this).html($(this).html() == 'edit' ? 'modify' : 'edit');
+//     });
+// });
+
+
+function buildTable_agent(data){
+	var table_agents = document.getElementById('agents_table')
+  for (var i = 0; i < data.length; i++){
+		var row = `<tr>
+						<!--<td>${data[i]._id}</td>-->
+						<td>${data[i].name}</td>
+						<td>${data[i].email}</td>
+            <td>${data[i].mobile}</td>
+				  </tr>`
+          table_agents.innerHTML += row
+        }
+};
+
+
+function getAllAgents(){
+  $.ajax({
+    method:'get',
+    url:'https://apisbot.ceibagreen.com/api/users/getAllAgents',
+    headers:{
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer '+token,
+  },success:function(response, code){
+    var all_agents = Array();
+    for(let i = 0; i<response.length; i++){
+      all_agents.push({"id": response[i]._id, "name": response[i].name, "Email": response[i].Email, "Mobile": response[i].Mobile})
+    };
+    // console.log(response); 
+    buildTable_agent(response);  
+    }
+    
+  })
+};
+getAllAgents();
+
+
+// Table sort -------------------
+function sortAgentTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("agents_table");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+
+function sortUserTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("user_table");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+
+
+  </script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <!-- End custom js for this page-->
+</body>
+
+</html>

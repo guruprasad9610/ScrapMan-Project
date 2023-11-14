@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Scrapman Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="images/favicon.png" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0">
+        <div class="row w-100 mx-0">
+          <div class="col-lg-3 mx-auto">
+            <div class="auth-form-light text-left py-5 px-4 px-sm-5 shadow-lg p-3 mb-5 bg-body rounded">
+              <div class="brand-logo">
+
+                <h1 class="display-3 text-center">Scrapman Admin</h1>
+              </div>
+
+              <form class="pt-3">
+                <div class="form-group">
+                  <input type="email" class="form-control form-control-lg shadow p-3 mb-5 bg-body rounded" id="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control form-control-lg shadow p-3 mb-5 bg-body rounded" id="password" placeholder="Password">
+                </div>
+                
+                <div class="d-grid gap-2 col-5 mx-auto">
+                  <button class="btn btn-primary btn-lg" id="btnSubmit" type="button">SIGN IN</button>
+                  <!-- <button class="btn btn-outline-primary" onclick="window.location.href=('register.html');" type="button">Register</button> -->
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!--Login--->
+  <script>
+
+
+  const form = {
+  email: document.querySelector("#username"),
+  password: document.querySelector("#password"),
+  submit: document.querySelector("#btnSubmit"),
+};
+let button = form.submit.addEventListener("click", (e) => {
+  e.preventDefault();
+  const url = "http://localhost:5000/api/users/login";
+
+  fetch(url, {
+    method: "POST",
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+            },
+    body: JSON.stringify({
+    email: form.email.value,
+    password: form.password.value,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+        if (data.status === true && data.isAdmin === true){   
+        //Store Login Details in Seassion
+        sessionStorage.setItem('token',data.token);
+        sessionStorage.setItem('_id',data._id);
+        let token = sessionStorage.getItem("token");
+        let _id = sessionStorage.getItem("_id");
+        window.location.href=("index.html");
+        console.log(token)
+        console.log(_id)
+        } else if (data.isAdmin == false) {
+          window.alert("You are not an Admin!")
+        }
+        else{
+          window.alert("Invalid Login")
+        }      
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  });
+
+  </script>
+  <!-- plugins:js -->
+  <script src="vendors/base/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/template.js"></script>
+  <!-- endinject -->
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="home" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Order Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <ion-card>
+      <ion-item>
+        <!-- <ion-label>
+          <h5>Order ID: {{ orderId }}</h5>
+        </ion-label> -->
+        <ion-badge color={{statusColor}} slot="end">{{ status }}</ion-badge>
+      </ion-item>
+    <ion-row class="ion-padding">
+      <ion-col size="12">
+        <h6>Order ID: {{ orderId }}</h6>
+      </ion-col>
+      <ion-col>
+        <h5>Address</h5>
+          <ion-label color="medium">{{ address }}</ion-label>
+          <ion-text color="medium">
+            <p >Landmark: {{ landmark }}</p>
+          </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-padding">
+      <ion-col>
+        <ion-text>
+          <span>Pickup Date:</span><br><span>{{ pickupDate }}</span>
+        </ion-text>
+      </ion-col>
+      <br><br>
+      <ion-col>
+        <ion-text>
+          <span>Pickup Time:</span><br><span>{{ pickupTime }}</span>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-padding">
+      <ion-col>
+        <span style="font-size: 18px;"><b><u>List of Items</u></b></span>
+        <table>
+          <thead>
+            <th>#</th>
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of items; let i=index">
+              <td>{{ i+1 }}</td>
+              <td>{{ item.item_name }}</td>
+              <td>{{ item.item_weight }}</td>
+              <td>{{ item.item_price }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <ion-text><h5>Order by</h5></ion-text>
+        <ion-text>Name: {{ orderBy_Name }}</ion-text><br>
+        <ion-text>Mobile: {{ orderBy_Mobile }}</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-padding">
+      <ion-col>
+        <ion-text style="text-align: end;">Total Payable Amount: {{ amount }}</ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-row style="position: absolute; bottom:5px; left:0; right:0" *ngIf=received>
+    <ion-col>
+      <ion-button expand="block" color="tertiary" (click)="handleCall( orderBy_Mobile )"><ion-icon name="call-sharp"></ion-icon> Call</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button expand="block" color="success" (click)="receiveOrder()"><ion-icon name="receipt-sharp"></ion-icon> Receive Order</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<!-- <ion-content class="ion-padding">
+  <ion-list>
+    <ion-list-header>
+      <ion-badge color={{statusColor}}>{{ status }}</ion-badge>
+      <ion-label>ID: {{ orderId }}</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-row>
+        <ion-col size="12">
+          <h5>Address</h5>
+          <ion-label color="medium">{{ address }}</ion-label>
+          <ion-text color="medium">
+            <p >Landmark: {{ landmark }}</p>
+          </ion-text>
+        </ion-col>
+        <ion-col size="12">
+          <ion-text>
+            <span>Pickup Date: {{ pickupDate }}</span>
+          </ion-text>
+        </ion-col>
+        <ion-col size="12">
+          <ion-text>
+            <span>Pickup Time: {{ pickupTime }}</span>
+          </ion-text>
+        </ion-col>
+        <ion-col size="12">
+          <p><u>List of Items:</u></p>
+          <table>
+            <thead>
+              <th>#</th>
+              <th>Item Name</th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of items; let i=index">
+                <td>{{ i+1 }}</td>
+                <td>{{ item.item_name }}</td>
+                <td>{{ item.item_weight }}</td>
+                <td>{{ item.item_price }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </ion-col>
+        <ion-col size="12">
+          <ion-text><h5>Total Payable Amount: {{ amount }}</h5></ion-text>
+        </ion-col>
+      </ion-row>
+      
+      
+    </ion-item>
+    <ion-item>
+      <ion-row>
+        <ion-col size="12">
+          <ion-text><h5>Order by</h5></ion-text>
+        </ion-col>
+        <ion-col size="12">
+          <ion-text>Name: {{ orderBy_Name }}</ion-text>
+        </ion-col>
+        <ion-col size="12">
+          <ion-text>Mobile: {{ orderBy_Mobile }}</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+  <ion-row style="position: absolute; bottom:5px; left:0; right:0" *ngIf=received>
+    <ion-col>
+      <ion-button expand="block" color="tertiary" (click)="handleCall( orderBy_Mobile )"><ion-icon name="call-sharp"></ion-icon> Call</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button expand="block" color="success" (click)="receiveOrder()"><ion-icon name="receipt-sharp"></ion-icon> Receive Order</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content> -->

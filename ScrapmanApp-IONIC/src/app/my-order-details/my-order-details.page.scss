@@ -1,0 +1,15 @@
+ion-header{
+    ion-toolbar{
+        --background:#008F0E;
+        color: white;
+    }
+}
+.container{
+    padding: 10px;
+}
+table, th, td{
+    border: 1px solid gray;
+    text-align: center;
+    padding: 10px;
+    margin:5px;
+}

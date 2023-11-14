@@ -1,0 +1,33 @@
+
+.container .card{
+    background-color: #008F0E;
+    height: 200px;
+    width: 100%;
+    .greetings{
+        position: absolute;
+        width: 208px;
+        height: 61px;
+        left: 35px;
+        top: 81px;
+
+        font-family: 'Inter';
+        font-style: normal;
+
+        color: #FFFFFF;
+        
+    }
+}
+section{
+    ion-text h3{
+        color: #008F0E;
+    }
+    // position: relative;
+    
+    ion-segment{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        --background: var(--ion-background-color);
+    }
+}

@@ -1,0 +1,61 @@
+.main{
+    height: 262px;
+    width: 100%;
+    background-image: url('../../../src/assets/main/dashboard_home.jpg');
+    background-size: cover !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    color: white;
+}
+.main{
+    .overlay-screen{
+        height: 262px;
+        width: 100%;
+        top: 0;
+        position: absolute;
+        background: #0795159e;
+        left: 0;
+        display: grid;
+        place-content: center;
+
+    }
+
+}
+.scrap-price-list{
+    height: 220px;
+    width:100%;
+    margin: 6px;
+    ion-content{
+        scrollbar-width: none;
+        div{
+            display: inline-flex;
+        }
+    }
+}
+.scrap-card{
+    height: auto;
+    width: 126px;
+    text-align: center;
+    padding: 10px;
+    img{
+        height: 100px;
+        width: 100px;
+        border: #5d5d5d 1px solid;
+        border-radius: 50px;
+    }
+    ion-card-title{
+        font-size: 16px;
+    }
+}
+
+
+
+ion-card.banner{
+    width: 96%;
+    max-width: 100%;
+    height: 160px;
+    margin: 5px auto;
+    background: linear-gradient(270deg, rgba(42, 163, 0, 0.78) 0%, #02A012 100%);
+    border-radius: 10px;
+}

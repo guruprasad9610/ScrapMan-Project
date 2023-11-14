@@ -1,0 +1,33 @@
+.main-success, .main-fail{
+    height: 262px;
+    width: 100%;
+    
+    background-size: cover !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    color: white;
+}
+.main-success, .main-fail{
+    display: none;
+    .overlay-screen{
+        height: 262px;
+        width: 100%;
+        top: 0;
+        position: absolute;
+        background: #0795159e;
+        left: 0;
+        display: grid;
+        place-content: center;
+        .quote{
+            text-align: center;
+        }
+    }
+    
+}
+table, th, td{
+    border: 1px solid gray;
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+}

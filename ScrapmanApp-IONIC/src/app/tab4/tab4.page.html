@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      My Orders
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="container">
+    <ion-card class="ion-activatable ripple-parent rectangle" *ngFor="let item of orders" (click)="goToOrderDetails(item.id)">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-card-header>
+        <ion-card-subtitle>Ordered placed on {{ item.ordered_on }}</ion-card-subtitle>
+        <ion-card-title>ID:{{ item.id }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Items : {{ item.items }}
+      </ion-card-content>
+    </ion-card>
+      
+  </div>
+</ion-content>

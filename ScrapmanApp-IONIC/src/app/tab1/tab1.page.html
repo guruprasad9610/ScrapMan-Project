@@ -1,0 +1,71 @@
+
+<ion-content [fullscreen]="true"
+[scrollEvents]="true">
+  <div class="main">
+    <div class="overlay-screen">
+      <div class="quote">
+        <ion-title size="large" style="font-weight: 600;font-size:30px">Be a part of Solution,</ion-title>
+        <ion-title size="large" style="font-weight: 100;font-size:24px">not the pollution</ion-title>
+      </div>
+    </div>
+  </div>
+  
+  <div  class="scrap-price-list">
+    <h3 style="margin: 10px;">TODAYS SCRAP RATES</h3>
+    <ion-content
+      [scrollEvents]="true"
+      [scrollY]="false"
+      [scrollX]="true"
+      (ionScrollStart)="logScrollStart()"
+      (ionScroll)="logScrolling($event)"
+      (ionScrollEnd)="logScrollEnd()" scrollable>
+      <div>
+        <ion-card class="scrap-card" *ngFor="let item of itemDatas">
+          <img src="{{ item.item_img }}" alt="{{ item.item_desc }}">
+          <ion-card-title><span>{{ item.item_name }}</span></ion-card-title>
+          <ion-card-subtitle><span><i class="fas fa-indian-rupee-sign" ></i> {{ item.price }}/KG</span></ion-card-subtitle>
+        </ion-card>
+
+      </div>
+    </ion-content>
+
+  </div>
+
+  <ion-card (click)="goToTab3()" class="banner" style="margin-top: 20px;">
+    <ion-grid>
+      <ion-row>
+        <ion-col style="place-content: center;">
+          <ion-text color="light">
+            <span style="font-weight: 400;font-size:24px"><b>Sell Your Trash</b></span><br>
+            <span style="font-weight: 100;font-size:24px">Earn Some Cash</span>
+          </ion-text>
+        </ion-col>
+        <ion-col size="auto">
+          <img src="../../assets/main/kid-thowing.png" style="width: 130px; height: 130px;">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>
+
+<!--
+<ion-card>
+  <img src="../../assets/scrap_items/newspapper.jpg">
+  <ion-card-title>Newspaper</ion-card-title>
+  <ion-card-subtitle>INR 8</ion-card-subtitle>
+</ion-card>
+<ion-card>
+  <img src="../../assets/scrap_items/iron.jpg">
+  <ion-card-title>Iron</ion-card-title>
+  <ion-card-subtitle>INR 22</ion-card-subtitle>
+</ion-card>
+<ion-card>
+  <img src="../../assets/scrap_items/copper.jpg">
+  <ion-card-title>Copper</ion-card-title>
+  <ion-card-subtitle>INR 400</ion-card-subtitle>
+</ion-card>
+<ion-card>
+  <img src="../../assets/scrap_items/plastic.jpg">
+  <ion-card-title>Plastic</ion-card-title>
+  <ion-card-subtitle>INR 10</ion-card-subtitle>
+</ion-card>-->

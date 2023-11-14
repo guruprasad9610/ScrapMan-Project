@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <center><ion-title>Add Address</ion-title></center>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()">Confirm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-select placeholder="Country" (ionChange)="getCountry()" [(ngModel)]="country">
+              <ion-select-option value="india">India</ion-select-option>
+              <ion-select-option value="usa">USA</ion-select-option>
+              <ion-select-option value="north-america">North America</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-select placeholder="States" (ionChange)="getState()" [(ngModel)]="state">
+              <ion-select-option value="odisha">Odisha</ion-select-option>
+              <ion-select-option value="kolkata">Kolkata</ion-select-option>
+              <ion-select-option value="jharkhand">Jharkhand</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-select placeholder="District" (ionChange)="getDistrict()" [(ngModel)]="district">
+              <ion-select-option value="bbsr">Bhubaneswar</ion-select-option>
+              <ion-select-option value="sbp">Sambalpur</ion-select-option>
+              <ion-select-option value="ctc">Cuttack</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Add Address</ion-label>
+          <ion-textarea placeholder="Add address" [(ngModel)]="address"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Landmark</ion-label>
+          <ion-input placeholder="Add address" [(ngModel)]="landmark"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Pincode</ion-label>
+          <ion-input placeholder="Add address" [(ngModel)]="pincode"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

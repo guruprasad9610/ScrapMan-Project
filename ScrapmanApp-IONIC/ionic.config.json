@@ -1,0 +1,8 @@
+{
+  "name": "Trashv1",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

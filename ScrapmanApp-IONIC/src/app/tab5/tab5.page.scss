@@ -1,0 +1,14 @@
+ion-header{
+    ion-toolbar{
+        --background:#008F0E;
+        color: white;
+    }
+}
+.container{
+    padding: 10px;
+    position: relative;
+    ion-button{
+        --background:#DC0606;
+        color: white;
+    }
+}

@@ -1,0 +1,41 @@
+<ion-content>
+  <div class="main">
+    <div class="overlay">
+        <ion-list>
+          <ion-item style="font-style: normal;font-weight: 700;font-size: 27px;line-height: 33px;border:none">
+            <h1 style="font-weight:600;">Register</h1>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="floating" color="dark">Name</ion-label>
+            <ion-input placeholder="john" [(ngModel)]="name"></ion-input>
+        </ion-item >
+        <ion-item lines="none">
+            <ion-label position="floating" color="dark">Email</ion-label>
+            <ion-input placeholder="john@xyz.com" type="email" [(ngModel)]="email"></ion-input>
+            <div class="err" *ngIf="submitted && f.email.errors">
+              <div *ngIf="f.email.email.required">Email is Required</div>
+            </div>
+        </ion-item>
+            <ion-item lines="none">
+                <ion-label position="floating" color="dark">Mobile no.</ion-label>
+                <ion-input placeholder="" [(ngModel)]="mobile"></ion-input>
+            </ion-item >
+            <ion-item lines="none">
+                <ion-label position="floating" color="dark">Password</ion-label>
+                <ion-input placeholder="********" type="password" [(ngModel)]="password"></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label position="floating" color="dark">Confirm Password</ion-label>
+              <ion-input placeholder="********" type="password" [(ngModel)]="confirm_password"></ion-input>
+          </ion-item >
+            <!-- <ion-item> -->
+                <ion-button expand="full" (click)="onSubmit()">Sign Up</ion-button>
+            <!-- </ion-item> -->
+            <div class="loginOption">
+              <center><ion-label>Already have an Account? <a [routerLink]="['/login']" routerLinkActive="router-link-active"  style="text-decoration: none; color:aqua;">Login here</a></ion-label></center>
+            </div>
+        </ion-list>
+        
+    </div>
+  </div>
+</ion-content>

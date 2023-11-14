@@ -1,0 +1,18 @@
+ion-header{
+    ion-toolbar{
+        --background:#008F0E;
+        color: white;
+    }
+}
+.ion-card{
+    ion-grid{
+        ion-row{
+            ion-col{
+                ion-img{
+                    height: 100px;
+                    width: 100px;
+                }
+            }
+        }
+    }
+}

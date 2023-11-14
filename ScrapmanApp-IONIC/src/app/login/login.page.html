@@ -1,0 +1,26 @@
+<ion-content>
+  <div class="main">
+    <div class="overlay">
+        <ion-list>
+            <ion-item lines="none">
+                <ion-label position="floating" color="dark">Email</ion-label>
+                <ion-input placeholder="john@xyz.com" [(ngModel)]="email" type="email"></ion-input>
+            </ion-item >
+            <ion-item lines="none">
+                <ion-label position="floating" color="dark">Password</ion-label>
+                <ion-input placeholder="********"  [(ngModel)]="password" type="password"></ion-input>
+            </ion-item>
+            <!-- <ion-item> -->
+                <ion-button expand="full" (click)="onSubmit()">Login</ion-button>
+            <!-- </ion-item> -->
+            <div class="loginOption">
+                <center><ion-label>Don't have any account</ion-label></center>
+                <ion-button expand="block" color="secondary" [routerLink]="['/register']">Create Account</ion-button>
+                <center><ion-label>OR</ion-label></center>
+                <ion-button expand="full"> SIGN IN WITH GOOGLE</ion-button>
+            </div>
+        </ion-list>
+        
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,8 @@
+{
+  "name": "Scrapbot Agent",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

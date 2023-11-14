@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pickup Time & Address</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-item style="margin: 10px;">
+    <ion-label position="stacked">Pickup Date and Time</ion-label>
+    <ion-datetime-button datetime="datetime" display-timezone="ist" displayFormat="MM/DD/YYYY hh:mm A"></ion-datetime-button>
+  </ion-item> -->
+  <ion-item>
+    <ion-label>Pick date</ion-label>
+    <ion-input
+      value="{{ myDate | date: 'dd-MM-yyyy' }}"
+      id="date"
+      class="ion-text-end"
+      (ionChange)="setDate()"
+    ></ion-input>
+    <ion-popover trigger="date" size="cover">
+      <ng-template>
+        <ion-datetime
+          presentation="date"
+          [(ngModel)]="myDate"
+          locale="en-in"
+        ></ion-datetime>
+      </ng-template>
+    </ion-popover>
+  </ion-item>
+  <ion-item>
+    <ion-label>Pick Time</ion-label>
+    <!-- <ion-input
+      value="{{ myDate | date: 'HH:mm' }}"
+      id="time"
+      class="ion-text-end"
+    ></ion-input>
+    <ion-popover trigger="time" size="cover">
+      <ng-template>
+        <ion-datetime
+          presentation="time"
+          [(ngModel)]="myDate"
+          locale="en-GB-u-hc-h23"
+          minuteValues="0,30"
+        ></ion-datetime>
+      </ng-template>
+    </ion-popover> -->
+  <!-- </ion-item *ngFor="let item of list">-->
+  </ion-item> 
+  <ion-radio-group allow-empty-selection="true" name="radio-group" #radioGroup>
+    <ion-item *ngFor="let item of slotsArr">
+      <ion-text slot="start" >{{ selectedDate }} {{item.time}}</ion-text>
+      <ion-radio name="time" slot="end" (ionFocus)=selectSlot(item.time)></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+    <!-- <ion-item *ngFor="let item of slotsArr" >
+      <ion-text slot="start" >{{item.time}}</ion-text>
+      
+    </ion-item> -->
+  
+  <ion-item>
+    <ion-button expand="block" (click)="addAddressModal()" slot="end">Add Address</ion-button>
+  </ion-item>
+
+  <ion-button expand="block" (click)="placeOrder()" class="placeOrderBtn">Schedule Pickup</ion-button>
+</ion-content>
+
+<ion-modal [keepContentsMounted]="true">
+  <ng-template>
+    <ion-datetime id="datetime" (ionChange)="setDate()" (value)="myDate" style="background: white; color:black" >
+      <span slot="title">Select a slot</span>
+    </ion-datetime>
+  </ng-template>
+</ion-modal>
+

@@ -1,0 +1,17 @@
+ion-header{
+    ion-toolbar{
+        --background:#008F0E;
+        color: white;
+    }
+}
+ion-datetime-button{
+    margin: 20px auto;
+}
+.placeOrderBtn{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin: 10px;
+    --background:#008F0E;
+}

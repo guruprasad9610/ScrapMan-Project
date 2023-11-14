@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ orderId }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Order Status</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-progress-bar color="secondary" value="{{ orderProgress }}" style="margin-bottom: 10px;"></ion-progress-bar>
+        <ion-text>Status : {{ orderStatus }}</ion-text>
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Order Details</ion-card-title>
+        <ion-card-subtitle>Order Id : {{ orderId }} </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <!-- <ion-list> -->
+            <ion-text>Pickup Date: <b>{{ date }}</b></ion-text><br>
+            <ion-text>Pickup Time: <b>{{ time }}</b></ion-text>
+          <ion-text  style="margin-top:20px;"><h5>List of items</h5></ion-text>
+          <ion-item>
+            <table>
+              <thead>
+                <tr>
+                  <th>Sl no</th>
+                  <th>Item</th>
+                  <th>Quantity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of items; let i=index;">
+                  <td>{{ i+1 }}</td>
+                  <td>{{ item.item_name }}</td>
+                  <td>{{ item.item_weight }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </ion-item>
+          <ion-item>
+            <ion-text slot="end">Total Amount: ₹ {{ totalCost }}</ion-text>
+          </ion-item>
+        <!-- </ion-list> -->
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

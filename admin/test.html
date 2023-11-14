@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <button onclick="check()">Check API</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function check(){
+            console.log("hii");
+            let d = {
+                    "date":"09-12-2022",
+                    "time":"12:50"
+                }
+            // $.ajax({
+            //     method:'post',
+            //     url:'http://scrapbot.ceibagreen.com/api/slot/create',
+            //     headers:{
+            //     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNjlhOGJmOGY1NmVmMDcxMDU2MjdiMCIsImlhdCI6MTY2Nzg2OTA2MCwiZXhwIjoxNjcwNDYxMDYwfQ.YTdnUWVVSyGEtRqZW6IPDnyaQzx1Oe6tumWanzf5SpY',
+            //     // crossDomain: true,
+            //     "contentType":"application/json"
+            //     },
+            //     data:d,
+            //     dataType:"json",
+            //     success:function(res,code){
+            //         console.log(res)
+            //     }
+            // })
+                
+            $.ajax({
+                method:'post',
+                url:'http://localhost:5000/api/users/login',
+                headers:{
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNjlhOGJmOGY1NmVmMDcxMDU2MjdiMCIsImlhdCI6MTY2Nzg2OTA2MCwiZXhwIjoxNjcwNDYxMDYwfQ.YTdnUWVVSyGEtRqZW6IPDnyaQzx1Oe6tumWanzf5SpY',
+                // crossDomain: true,
+                "contentType":"application/json"
+                },
+                data:d,
+                dataType:"json",
+                success:function(res,code){
+                    console.log(res)
+                }
+            })
+
+
+        }
+    </script>
+</body>
+</html>

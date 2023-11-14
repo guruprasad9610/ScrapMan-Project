@@ -1,0 +1,26 @@
+ion-header{
+    ion-toolbar{
+        --background:#008F0E;
+        color: white;
+    }
+}
+.proceedBtn{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin: 10px;
+    --background:#008F0E;
+}
+.scrap-card{
+    height: 156px;
+    width: 126px;
+    text-align: center;
+    padding: 10px;
+    img{
+        height: 100px;
+        width: 100px;
+        border: #5d5d5d 1px solid;
+        border-radius: 50px;
+    }
+}
